@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI - Calculate</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+    <div class="card-header text-center">BMI Calculater</div>
+    <div class="card-body">
+        <form class="w-50 m-auto" onsubmit="return false">
+            <div class="form-group">
+                <label>Weight:</label>
+                <input type="number" name="" placeholder="Weight in Kg" required id="weight" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Height:</label>
+                <input type="text" name="" placeholder="Height in Feet" required id="height" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>BMI - Value :</label>
+                <input type="number" name="" id="bmivalue" class="form-control">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success" onclick="getbmivalue()">Calculate BMI</button>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-center"> BMI is 18.5 to 24.9, it falls within the normal or Healthy Weight range</div>
+    </div>
+</div>
+
+<script>
+
+    function getbmivalue(){
+    var weight = document.getElementById('weight').value;
+    var height = document.getElementById('height').value;
+      height = height * 12; 
+      height = height * 0.025;     //now height in meter
+
+      var newbmivalue = weight / (height * height); // (Math.pow(height,2))
+    newbmivalue = Math.round(newbmivalue);
+      document.getElementById('bmivalue').value = newbmivalue;
+}
+
+</script>
+
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
